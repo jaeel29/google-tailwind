@@ -6,4 +6,8 @@
   .link {
     @apply text-gray-900 hover:underline;
   }
+
+  .btn {
+    @apply outline-none text-base bg-gray-50 px-8 py-3 rounded-md hover:shadow-lg hover:ring-1 hover:ring-gray-200 sm:px-5 sm:py-2.5;
+  }
 }
