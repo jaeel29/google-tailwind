@@ -10,7 +10,7 @@ const HeaderOption = ({ Icon, title, selected }: any) => {
         }`}
       >
         {Icon && <Icon className='h-5' />}
-        <p>{title}</p>
+        <p className='hidden sm:block'>{title}</p>
       </div>
     </Link>
   );
