@@ -8,7 +8,7 @@ const Pagination = () => {
   const startIndex = Number(router.query.start) || 0;
 
   return (
-    <div className='max-w-5xl py-4 pl-[10%] md:pl-[15%] flex gap-6 justify-end text-sm'>
+    <div className='max-w-5xl mt-7 py-4 pl-[10%] md:pl-[15%] flex gap-6 justify-start text-sm'>
       {startIndex >= 10 && (
         <Link href={`/search?term=${router.query.term}&start=${startIndex - 10}`} passHref>
           <div className='flex gap-2 items-center bg-gray-100 py-3 rounded-md w-[120px] justify-center cursor-pointer'>
