@@ -14,7 +14,7 @@ const SearchItem = ({ result }: any) => {
         </a>
       </div>
 
-      <p>{result.snippet}</p>
+      <p className='line-clamp-2'>{result.snippet}</p>
     </div>
   );
 };
