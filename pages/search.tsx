@@ -1,10 +1,22 @@
-import { MicrophoneIcon, SearchIcon, ViewGridIcon, XIcon } from '@heroicons/react/outline';
+import {
+  BookmarkAltIcon,
+  DotsVerticalIcon,
+  MicrophoneIcon,
+  NewspaperIcon,
+  PhotographIcon,
+  SearchIcon,
+  VideoCameraIcon,
+  ViewGridIcon,
+  XIcon,
+} from '@heroicons/react/outline';
 import { CogIcon } from '@heroicons/react/solid';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { FormEvent, useRef } from 'react';
 import Avatar from '../components/Avatar';
+import HeaderOption from '../components/HeaderOption';
 
 const Search = () => {
   const router = useRouter();
@@ -29,57 +41,74 @@ const Search = () => {
       </Head>
 
       {/* Header */}
-      <header className='flex gap-10 items-center w-full px-6 py-7 border-b border-gray-200 sticky top-0 bg-white'>
-        <div
-          className='relative w-[120px] h-[40px] cursor-pointer'
-          onClick={() => router.push('/')}
-        >
-          <Image
-            src={'http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png'}
-            layout='fill'
-            objectFit='contain'
-            alt='google logo'
-          />
-        </div>
+      <header className='flex flex-col gap-6 w-full px-6 pt-7 border-b border-gray-200 sticky top-0 bg-white'>
+        <div className='flex gap-10 items-center '>
+          <div
+            className='relative w-[120px] h-[40px] cursor-pointer'
+            onClick={() => router.push('/')}
+          >
+            <Image
+              src={'http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png'}
+              layout='fill'
+              objectFit='contain'
+              alt='google logo'
+            />
+          </div>
 
-        <form className='flex-grow flex items-center w-full ring-1 ring-gray-200 max-w-md pr-3 rounded-full focus-within:shadow-lg'>
-          <input
-            type='text'
-            placeholder='hello'
-            ref={searchInputRef}
-            className='outline-none w-full py-2 pl-4 bg-transparent'
-          />
-
-          <div className='flex gap-3'>
-            <XIcon
-              className='w-5 h-5 cursor-pointer transition-all duration-100 ease-out hover:scale-125'
-              onClick={() => (searchInputRef.current!.value = '')}
+          <form className='flex-grow flex items-center w-full ring-1 ring-gray-200 max-w-md pr-3 rounded-full focus-within:shadow-lg'>
+            <input
+              type='text'
+              placeholder='hello'
+              ref={searchInputRef}
+              className='outline-none w-full py-2 pl-4 bg-transparent'
             />
 
-            <div className='hidden sm:inline-flex gap-3'>
-              <div className='border-r border-gray-200' />
-              <MicrophoneIcon className='w-5 h-5 cursor-pointer transition-all duration-100 ease-out hover:scale-125' />
-              <SearchIcon className='w-5 h-5 cursor-pointer transition-all duration-100 ease-out hover:scale-125' />
+            <div className='flex gap-3'>
+              <XIcon
+                className='w-5 h-5 cursor-pointer transition-all duration-100 ease-out hover:scale-125'
+                onClick={() => (searchInputRef.current!.value = '')}
+              />
+
+              <div className='hidden sm:inline-flex gap-3'>
+                <div className='border-r border-gray-200' />
+                <MicrophoneIcon className='w-5 h-5 cursor-pointer transition-all duration-100 ease-out hover:scale-125' />
+                <SearchIcon className='w-5 h-5 cursor-pointer transition-all duration-100 ease-out hover:scale-125' />
+              </div>
+            </div>
+
+            <button onClick={searchHandler} hidden>
+              Submit
+            </button>
+          </form>
+
+          <div className='ml-auto flex items-center'>
+            <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
+              <CogIcon className='w-6 h-6' />
+            </div>
+
+            <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
+              <ViewGridIcon className='h-6 w-6' />
+            </div>
+
+            {/* Avatar */}
+            <div>
+              <Avatar url='/jaber 2.jpg' />
             </div>
           </div>
+        </div>
 
-          <button onClick={searchHandler} hidden>
-            Submit
-          </button>
-        </form>
-
-        <div className='ml-auto flex items-center'>
-          <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
-            <CogIcon className='w-6 h-6' />
+        <div className='max-w-5xl flex justify-evenly bg-gray-200 '>
+          <div className='flex gap-6'>
+            <HeaderOption Icon={SearchIcon} title='All' selected />
+            <HeaderOption Icon={PhotographIcon} title='Images' />
+            <HeaderOption Icon={VideoCameraIcon} title='Videos' />
+            <HeaderOption Icon={BookmarkAltIcon} title='Books' />
+            <HeaderOption Icon={NewspaperIcon} title='News' />
+            <HeaderOption Icon={DotsVerticalIcon} title='More' />
           </div>
 
-          <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
-            <ViewGridIcon className='h-6 w-6' />
-          </div>
-
-          {/* Avatar */}
           <div>
-            <Avatar url='/jaber 2.jpg' />
+            <HeaderOption title='Tools' />
           </div>
         </div>
       </header>
