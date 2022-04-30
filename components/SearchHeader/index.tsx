@@ -14,14 +14,17 @@ import {
 import { CogIcon } from '@heroicons/react/solid';
 import HeaderOption from '../HeaderOption';
 import Avatar from '../Avatar';
+import { useRouter } from 'next/router';
 
-const SearchHeader = ({ router, searchHandler }: any) => {
+const SearchHeader = () => {
+  const router = useRouter();
   const routerQuery = router.query.term;
+
   const [searchInput, setSearchInput] = useState<string>('');
   const handleChage = (e: any) => setSearchInput(e.target.value);
 
   useEffect(() => {
-    setSearchInput(routerQuery);
+    setSearchInput(routerQuery as string);
   }, [routerQuery]);
 
   const handleSearch = (e: FormEvent) => {

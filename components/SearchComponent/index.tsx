@@ -9,7 +9,7 @@ const SearchComponent = () => {
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const search = (event: FormEvent) => {
+  const searchHandler = (event: FormEvent) => {
     event.preventDefault();
     const query = searchInputRef.current?.value;
 
@@ -19,7 +19,7 @@ const SearchComponent = () => {
   };
 
   return (
-    <form className='flex-grow flex flex-col items-center justify-center'>
+    <form onSubmit={searchHandler} className='flex-grow flex flex-col items-center justify-center'>
       <div className='relative w-[300px] h-[100px] mb-10'>
         <Image
           src={'http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png'}
@@ -37,7 +37,7 @@ const SearchComponent = () => {
       </div>
 
       <div className='flex flex-col gap-4 mt-6 sm:flex-row'>
-        <button className='btn' onClick={search}>
+        <button className='btn' onClick={searchHandler}>
           Google Search
         </button>
         <button className='btn'>I{"'"}m Feeling Lucky</button>

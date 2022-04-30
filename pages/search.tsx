@@ -20,7 +20,7 @@ const Search = ({ results }: any) => {
       </Head>
 
       {/* Header */}
-      <SearchHeader router={router} />
+      <SearchHeader />
 
       {/* Search Result */}
       <SearchResult results={results} />
@@ -31,7 +31,8 @@ const Search = ({ results }: any) => {
 export default Search;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const useDummyData = false;
+  const useDummyData = true;
+
   const startIndex = context.query.start || '0';
 
   const data = useDummyData
@@ -41,7 +42,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       ).then((response) => response.json());
 
   // After the SERVERSIDE render... Pass the result to the client
-
   return {
     props: {
       results: data,
