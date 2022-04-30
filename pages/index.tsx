@@ -1,11 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
-import Avatar from '../components/Avatar';
-import { MicrophoneIcon, ViewGridIcon } from '@heroicons/react/solid';
-import { SearchIcon } from '@heroicons/react/outline';
-import Image from 'next/image';
 import Footer from '../components/Footer';
+import SearchComponent from '../components/SearchComponent';
+import Header from '../components/Header';
 
 const Home: NextPage = () => {
   return (
@@ -17,54 +14,10 @@ const Home: NextPage = () => {
       </Head>
 
       {/* Header */}
-      <header className='h-16 w-full flex items-center text-sm px-5'>
-        <div className='flex items-center gap-4 ml-auto'>
-          <div className='flex gap-4'>
-            <Link href={'/'}>
-              <a className='link'>Gmail</a>
-            </Link>
-            <Link href={'/'}>
-              <a className='link'>Images</a>
-            </Link>
-          </div>
-
-          {/* Icon */}
-          <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
-            <ViewGridIcon className='h-6 w-6' />
-          </div>
-
-          {/* Avatar */}
-          <div>
-            <Avatar url='/jaber 2.jpg' />
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Body */}
-      <form className='flex-grow flex flex-col items-center justify-center'>
-        <div className='relative w-[300px] h-[100px] mb-10'>
-          <Image
-            src={'http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png'}
-            layout='fill'
-            objectFit='contain'
-            alt='Google logo'
-            priority
-          />
-        </div>
-
-        <div className='max-w-md flex items-center gap-2 w-full border border-gray-200 rounded-full px-3 focus-within:shadow-lg transition-all duration-150 ease-out md:max-w-xl'>
-          <SearchIcon className='w-5 h-5' />
-          <input type='text' className='outline-none flex-1 h-full py-3' />
-          <MicrophoneIcon className='w-5 h-5' />
-        </div>
-
-        <div className='flex flex-col gap-4 mt-6 sm:flex-row'>
-          <button className='btn'>Google Search</button>
-          <Link href={'/'} passHref>
-            <button className='btn'>I{"'"}m Feeling Lucky</button>
-          </Link>
-        </div>
-      </form>
+      <SearchComponent />
 
       {/* Footer */}
       <Footer />
