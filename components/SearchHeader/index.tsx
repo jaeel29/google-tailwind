@@ -11,7 +11,7 @@ import {
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { CogIcon } from '@heroicons/react/solid';
+import { CogIcon } from '@heroicons/react/outline';
 import HeaderOption from '../HeaderOption';
 import Avatar from '../Avatar';
 import { useRouter } from 'next/router';
@@ -80,13 +80,15 @@ const SearchHeader = () => {
           </div>
         </form>
 
-        <div className='ml-auto flex items-center'>
-          <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
-            <CogIcon className='w-6 h-6' />
-          </div>
+        <div className='ml-auto flex items-center gap-4'>
+          <div className='flex gap-2'>
+            <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
+              <CogIcon className='w-6 h-6' />
+            </div>
 
-          <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
-            <ViewGridIcon className='h-6 w-6' />
+            <div className='w-11 h-11 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200'>
+              <ViewGridIcon className='h-6 w-6' />
+            </div>
           </div>
 
           {/* Avatar */}
